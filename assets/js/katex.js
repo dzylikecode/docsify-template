@@ -1,7 +1,7 @@
 // import katex from "katex";
 // import marked from "marked";
 (function () {
-  let originMarkdown = window.$docsify.markdown;
+  let originMarkdown = window.$docsify?.markdown;
   let newMarked = marked; // version above 2.1.0
   window.$docsify.markdown = newMarkdown;
   return;
