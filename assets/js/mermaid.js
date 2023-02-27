@@ -12,10 +12,7 @@
     mermaid.initialize({ startOnLoad: false, theme: getTheme() });
     return;
     function getTheme() {
-      if (
-        window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-      ) {
+      if (window?.matchMedia("(prefers-color-scheme: dark)").matches) {
         return "dark";
       } else {
         return "default";
