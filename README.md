@@ -1,4 +1,6 @@
-# docsify-template
+# docsify template
+
+tailor docsify
 
 index.html:
 
@@ -7,7 +9,3 @@ index.html:
 - [ ] modify the keyword
 - [ ] modify the repo link
 - [ ] modify the variable `url` in the script tag
-
-## 可读性
-
-不必打包, 压缩, 方便自己阅读和修改

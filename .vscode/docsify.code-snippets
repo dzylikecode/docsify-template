@@ -41,5 +41,11 @@
     "prefix": "@codeblog",
     "body": ["```${1:language}", "$2", "```", "$0"],
     "description": "link to code blog"
+  },
+  "highlight text": {
+    "scope": "markdown",
+    "prefix": "@text",
+    "body": ["==$1==$0"],
+    "description": "highlight text"
   }
 }

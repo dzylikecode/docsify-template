@@ -1,3 +1,7 @@
+# test
+
+## mermaid
+
 ```mermaid
 flowchart LR
     id1(Start)-->id2(Stop)
@@ -22,8 +26,24 @@ flowchart LR
   B1 --> B2
 ```
 
+## js to flowchart
+
 [](flowchart.js ":include :type=code js2flowchart")
+
+## katex
+
+```txt
+$$E = mc^2$$
+```
+
+$$E = mc^2$$
+
+## hightligt text
+
+```txt
+==high==
+```
 
 ==high==
 
-hello
+你好啊, ==yong580==
