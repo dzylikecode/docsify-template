@@ -14,14 +14,14 @@
         return {
           type: "wiki-ref-link",
           raw: match[0],
-          text: match[1].trim(),
+          text: match[1].trim().replace(/\s+/g, "-"),
           linkType: "reference",
         };
       } else if ((match = noteRule.exec(src))) {
         return {
           type: "wiki-ref-link",
           raw: match[0],
-          text: match[1].trim(),
+          text: match[1].trim().replace(/\s+/g, "-"),
           linkType: "note",
         };
       }
