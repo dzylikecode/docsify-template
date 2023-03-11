@@ -7,7 +7,7 @@
       return index;
     },
     tokenizer(src, tokens) {
-      const blockRule = /^==((\\.|[^\$\\])+)==/;
+      const blockRule = /^==((\\.|[^\\])*?)==/;
       let match;
       if ((match = blockRule.exec(src))) {
         return {
