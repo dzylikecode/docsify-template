@@ -70,6 +70,12 @@
       }
       return i;
     }
+
+    function getKey(link) {
+      const id = link.id;
+      const key = id.replace(/^cite_note/, "");
+      return key;
+    }
   }
   function setSupIndex(linkMap) {
     if (linkMap == undefined) return;
@@ -86,15 +92,16 @@
       const $child = link.children[0];
       $child.innerHTML = `[${index}]`;
     }
+
+    function getKey(link) {
+      const id = link.id;
+      const key = id.replace(/^cite_ref/, "");
+      return key;
+    }
   }
   function install() {
     docsifyPlugins.push(main);
   }
 
-  function getKey(link) {
-    const id = link.id;
-    const key = id.split("-")[1];
-    return key;
-  }
   install();
 })();
