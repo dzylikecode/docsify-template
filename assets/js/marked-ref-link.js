@@ -51,13 +51,16 @@
     const links = document.querySelectorAll(".mw-cite-backlink");
     links.forEach((link) => {
       const key = getKey(link);
+      if (key == undefined) return;
       const index = getParentIndex(link);
+      if (index == undefined) return;
       linkMap[key] = index;
     });
     return linkMap;
     // get the index of parent element(order list)
     function getParentIndex(link) {
       const $parent = link.parentNode;
+      if ($parent.tagName != "LI") return;
       let li = $parent;
       let i = 1;
 
@@ -69,10 +72,13 @@
     }
   }
   function setSupIndex(linkMap) {
+    if (linkMap == undefined) return;
     const links = document.querySelectorAll(".reference");
     links.forEach((link) => {
       const key = getKey(link);
+      if (key == undefined) return;
       const index = linkMap[key];
+      if (index == undefined) return;
       setChildIndex(link, index);
     });
 
