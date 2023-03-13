@@ -75,10 +75,7 @@
             targetElem.classList.add("target");
           } else if (noteIdRule.test(id)) {
             targetElem = document.querySelector(`#${id}`);
-            targetElem =
-              targetElem.parentElement.tagName == "LI"
-                ? targetElem.parentElement
-                : targetElem;
+            targetElem = getParentLi(targetElem) ?? targetElem;
             targetElem.classList.add("target");
           }
         }
@@ -98,8 +95,8 @@
     return linkMap;
     // get the index of parent element(order list)
     function getParentIndex(link) {
-      const $parent = link.parentNode;
-      if ($parent.tagName != "LI") return;
+      const $parent = getParentLi(link);
+      if ($parent == undefined) return;
       let li = $parent;
       let i = 1;
 
@@ -137,6 +134,13 @@
       const key = id.replace(/^cite_ref/, "");
       return key;
     }
+  }
+
+  function getParentLi(link) {
+    if (link == undefined) return;
+    if (link.parentElement == undefined) return;
+    if (link.parentElement.tagName == "LI") return link.parentElement;
+    else return getParentLi(link.parentElement);
   }
   function install() {
     docsifyPlugins.push(main);
