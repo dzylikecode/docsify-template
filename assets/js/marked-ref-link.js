@@ -41,9 +41,42 @@
 
 (function () {
   function main(hook, vm) {
+    let targetElem = null;
     hook.doneEach(function () {
       const linkMap = setLinkMap();
       setSupIndex(linkMap);
+    });
+    hook.ready(() => {
+      vm.router.onchange((params) => {
+        /**
+         * @type {HTMLElement}
+         */
+        console.log(params);
+        console.log(vm.route);
+        if (params.source == "navigate") {
+          /**
+           * @type {string}
+           */
+          const id = vm.route.query?.id ?? "";
+          console.log(`id: ${id}`);
+          const refIdRule = /^cite_ref-(.*)$/;
+          const noteIdRule = /^cite_note-(.*)$/;
+          if (targetElem != null) {
+            targetElem.classList.remove("target");
+          }
+          if (refIdRule.test(id)) {
+            targetElem = document.querySelector(`#${id}`);
+            targetElem.classList.add("target");
+          } else if (noteIdRule.test(id)) {
+            targetElem = document.querySelector(`#${id}`);
+            targetElem =
+              targetElem.parentElement.tagName == "LI"
+                ? targetElem.parentElement
+                : targetElem;
+            targetElem.classList.add("target");
+          }
+        }
+      });
     });
   }
   function setLinkMap() {
