@@ -41,6 +41,9 @@
 
 (function () {
   function main(hook, vm) {
+    /**
+     * @type {HTMLElement}
+     */
     let targetElem = null;
     hook.doneEach(function () {
       const linkMap = setLinkMap();
@@ -48,21 +51,24 @@
     });
     hook.ready(() => {
       vm.router.onchange((params) => {
-        /**
-         * @type {HTMLElement}
-         */
-        console.log(params);
-        console.log(vm.route);
+        // console.log(params);
+        // console.log(vm.route);
         if (params.source == "navigate") {
+          if (targetElem != null) {
+            targetElem.classList.remove("target");
+            targetElem == null;
+          }
+        }
+        if (params.source == "history") {
           /**
            * @type {string}
            */
           const id = vm.route.query?.id ?? "";
-          console.log(`id: ${id}`);
           const refIdRule = /^cite_ref-(.*)$/;
           const noteIdRule = /^cite_note-(.*)$/;
           if (targetElem != null) {
             targetElem.classList.remove("target");
+            targetElem == null;
           }
           if (refIdRule.test(id)) {
             targetElem = document.querySelector(`#${id}`);
