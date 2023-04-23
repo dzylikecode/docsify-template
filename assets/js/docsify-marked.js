@@ -1,6 +1,7 @@
 (function () {
   const originMarkdown = window.$docsify?.markdown || {};
   const newMarked = marked; // version above 2.1.0
+  window.gMarked = newMarked;
   window.$docsify.markdown = newMarkdown;
   return;
   function newMarkdown(originMarked, originRenderer) {
@@ -8,7 +9,7 @@
     const opts = mergeOptions();
 
     newMarked.setOptions(opts);
-    newMarked.use({ extensions: markedPlugins });
+    newMarked.use({ extensions: window.gMarkedPlugins });
 
     return newMarked.parse;
 
