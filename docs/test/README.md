@@ -48,6 +48,16 @@ $$E = mc^2$$
 
 你好啊, ==yong580==, but not to ==this==
 
+## markmap
+
+```markmap
+# hello
+
+## this
+
+## that
+```
+
 ## reference link
 
 ```txt
