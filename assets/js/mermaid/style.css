@@ -1,0 +1,283 @@
+@media (prefers-color-scheme: light) {
+  .btn {
+    --color-btn-text: #24292f;
+    --color-btn-bg: #f6f8fa;
+    --color-btn-border: rgba(27, 31, 36, 0.15);
+    --color-btn-shadow: 0 1px 0 rgba(27, 31, 36, 0.04);
+    --color-btn-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    --color-btn-hover-bg: #f3f4f6;
+    --color-btn-hover-border: rgba(27, 31, 36, 0.15);
+    --color-btn-active-bg: hsla(220, 14%, 93%, 1);
+    --color-btn-active-border: rgba(27, 31, 36, 0.15);
+    --color-btn-selected-bg: hsla(220, 14%, 94%, 1);
+    --color-btn-focus-border: rgba(27, 31, 36, 0.15);
+    --color-btn-focus-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+    --color-btn-shadow-active: inset 0 0.15em 0.3em rgba(27, 31, 36, 0.15);
+    --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(9, 105, 218, 0.3);
+    --color-btn-counter-bg: rgba(27, 31, 36, 0.08);
+    --color-fg-muted: #57606a;
+    --color-primer-shadow-inset: inset 0 1px 0 rgba(208, 215, 222, 0.2);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn {
+    --color-btn-text: #f0f3f6;
+    --color-btn-bg: #272b33;
+    --color-btn-border: #7a828e;
+    --color-btn-shadow: 0 0 transparent;
+    --color-btn-inset-shadow: 0 0 transparent;
+    --color-btn-hover-bg: #525964;
+    --color-btn-hover-border: #bdc4cc;
+    --color-btn-active-bg: hsla(217, 10%, 33%, 1);
+    --color-btn-active-border: #9ea7b3;
+    --color-btn-selected-bg: rgba(82, 89, 100, 0.9);
+    --color-btn-focus-border: #bdc4cc;
+    --color-btn-focus-shadow: 0 0 0 3px rgba(189, 196, 204, 0.3);
+    --color-btn-shadow-active: inset 0 0.15em 0.3em rgba(1, 4, 9, 0.15);
+    --color-btn-shadow-input-focus: 0 0 0 0.2em rgba(64, 158, 255, 0.3);
+    --color-btn-counter-bg: #525964;
+    --color-fg-muted: #f0f3f6;
+    --color-primer-shadow-inset: 0 0 transparent;
+  }
+}
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid;
+  border-radius: 6px;
+  appearance: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn:disabled,
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  cursor: default;
+}
+
+.btn:disabled .octicon,
+.btn.disabled .octicon,
+.btn[aria-disabled="true"] .octicon {
+  color: var(--color-fg-muted);
+}
+
+.btn i {
+  font-style: normal;
+  font-weight: 500;
+  opacity: 0.75;
+}
+
+.btn .octicon {
+  margin-right: 4px;
+  color: var(--color-fg-muted);
+  vertical-align: text-bottom;
+}
+
+.btn .octicon:only-child {
+  margin-right: 0;
+}
+
+.btn .Counter {
+  margin-left: 2px;
+  color: inherit;
+  text-shadow: none;
+  vertical-align: top;
+  background-color: var(--color-btn-counter-bg);
+}
+
+.btn .dropdown-caret {
+  margin-left: 4px;
+  opacity: 0.8;
+}
+
+.btn {
+  color: var(--color-btn-text);
+  background-color: var(--color-btn-bg);
+  border-color: var(--color-btn-border);
+  box-shadow: var(--color-btn-shadow), var(--color-btn-inset-shadow);
+  transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  transition-property: color, background-color, border-color;
+}
+
+.btn:hover,
+.btn.hover,
+[open] > .btn {
+  background-color: var(--color-btn-hover-bg);
+  border-color: var(--color-btn-hover-border);
+  transition-duration: 0.1s;
+}
+
+.btn:active {
+  background-color: var(--color-btn-active-bg);
+  border-color: var(--color-btn-active-border);
+  transition: none;
+}
+
+.btn.selected,
+.btn[aria-selected="true"] {
+  background-color: var(--color-btn-selected-bg);
+  box-shadow: var(--color-primer-shadow-inset);
+}
+
+.btn:disabled,
+.btn.disabled,
+.btn[aria-disabled="true"] {
+  color: var(--color-fg-muted);
+  background-color: var(--color-btn-bg);
+  border-color: var(--color-btn-border);
+}
+
+.btn:focus,
+.btn.focus {
+  border-color: var(--color-btn-focus-border);
+  outline: none;
+  box-shadow: var(--color-btn-focus-shadow);
+}
+
+.mermaid {
+  /* https://stackoverflow.com/questions/10487292/position-absolute-but-relative-to-parent */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  height: fit-content;
+}
+
+.mermaid > svg {
+  margin: 0 auto;
+  transform-origin: center;
+  transition: 100ms ease-in-out;
+}
+
+.mermaid-viewer-control-panel {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.2em;
+}
+
+.mermaid-viewer-control-panel > button {
+  padding: 5px 7px;
+}
+
+.mermaid-viewer-control-panel > .zoom-in {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.mermaid-viewer-control-panel > .zoom-out {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.mermaid-viewer-control-panel > .reset {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.mermaid-viewer-control-panel > .up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.mermaid-viewer-control-panel > .down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.mermaid-viewer-control-panel > .left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.mermaid-viewer-control-panel > .right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .mermaid-viewer-control-panel > button {
+    fill: #fff;
+  }
+}
+
+/* summary */
+.mermaid-summary {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+.mermaid-overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: all;
+  background-color: rgba(21, 21, 21, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.mermaid-overlay.is-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mermaid-detials {
+  position: fixed;
+  padding: 30px 40px;
+  top: 10%;
+  left: 25%;
+  /* transform: translate(-50%, -50%); */
+  overflow-y: auto;
+  box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+  z-index: 10;
+  background-color: var(--popup-bg);
+  width: 60%;
+  height: 60%;
+  visibility: hidden;
+  opacity: 0;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  white-space: normal;
+}
+
+@media screen and (max-width: 570px) {
+  .mermaid-detials {
+    width: 100%;
+    left: 0;
+  }
+}
+.mermaid-detials.visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mermaid-detials-close {
+  position: absolute;
+  top: 0.1em;
+  right: 0.1em;
+}
+
+.pre-mermaid {
+  height: 100%;
+}

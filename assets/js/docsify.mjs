@@ -1,13 +1,15 @@
 import { markedExtensions, markedRender, docsifyPlugins } from "./config.mjs";
-import "./marked-katex.mjs";
-import "./mermaid.mjs";
-import "./js2flowchart.mjs";
+
+import "./katex.mjs";
+import "./mermaid/index.mjs";
+import "./popup/index.mjs";
 import "./markmap.mjs";
 import "./anchor.mjs";
-import "./editOnGitHub.mjs";
+import "./references/index.mjs";
 import "./link.mjs";
 import "./marked-highligh-text.mjs";
-import "./marked-ref-link.mjs";
+import style from "./style.css" assert { type: "css" };
+import { marked } from "./marked.mjs";
 
 window.$docsify.markdown = {
   renderer: {
@@ -22,17 +24,16 @@ window.$docsify.markdown = {
 window.$docsify.plugins = docsifyPlugins.concat(window.$docsify.plugins || []);
 
 const originMarkdown = window.$docsify?.markdown || {};
-const newMarked = window.gMarked;
 window.$docsify.markdown = newMarkdown;
 
 function newMarkdown(originMarked, originRenderer) {
   const merge = Object.assign;
   const opts = mergeOptions();
 
-  newMarked.setOptions(opts);
-  newMarked.use({ extensions: markedExtensions });
+  marked.setOptions(opts);
+  marked.use({ extensions: markedExtensions });
 
-  return newMarked.parse;
+  return marked.parse;
 
   // source code: https://github.com/docsifyjs/docsify/blob/898e6eea7a7d5bf34a428d672d6a1b8c7896d183/src/core/render/compiler.js#L73-L87
   function mergeOptions() {
@@ -48,3 +49,6 @@ function newMarkdown(originMarked, originRenderer) {
 function isFn(obj) {
   return typeof obj === "function";
 }
+
+const cssStyle = [...document.adoptedStyleSheets, style];
+document.adoptedStyleSheets = cssStyle;

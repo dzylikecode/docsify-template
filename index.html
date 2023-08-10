@@ -23,10 +23,6 @@
       href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"
     />
     <!-- End -->
-    <!-- begin for docsify katex -->
-    <!-- the version of marked must above 2.1.0 -->
-    <script src="https://cdn.jsdelivr.net/npm/marked@4"></script>
-    <!-- End -->
     <!-- slidebar collapse -->
     <link
       rel="stylesheet"
@@ -37,18 +33,6 @@
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.14.3/dist/browser/index.min.js"></script>
     <!-- End -->
-    <!-- js2flowchart -->
-    <script src="https://cdn.jsdelivr.net/npm/js2flowchart@1.3.4/dist/js2flowchart.js"></script>
-    <link
-      rel="stylesheet"
-      media="(prefers-color-scheme: dark)"
-      href="./assets/css/style.css"
-    />
-    <link
-      rel="stylesheet"
-      media="(prefers-color-scheme: light)"
-      href="./assets/css/style-light.css"
-    />
   </head>
   <body>
     <div id="app"></div>
@@ -71,6 +55,24 @@
         subMaxLevel: 3, // 子目录最大层级, 有助于显示 markdown 的层级
         auto2top: true, // 自动跳转至顶部
       };
+      window.gCodeDocMaps = [
+        // {
+        //   docs: "docs/",
+        //   cache: "assets/cache/",
+        //   code: "https://github.com/DDLife/scripts-DST/blob/main/",
+        //   ext: ".lua",
+        //   exclude: ["README", "SUMMARY"],
+        //   global: ["GLOBAL"],
+        //   remoteRepos: [
+        //     {
+        //       docs: "https://DDLife.github.io/zh/#/ref/",
+        //       cache: "https://DDLife.github.io/zh/assets/cache/",
+        //       code: "https://github.com/DDLife/zh/blob/main/code/",
+        //       ext: ".lua",
+        //     },
+        //   ],
+        // },
+      ];
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>

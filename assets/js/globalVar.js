@@ -1,6 +1,5 @@
 window.gReposLink = `https://github.com/${window.gUserName}/${window.gReposName}`;
 window.gBlobLink = `${window.gReposLink}/blob/${window.gBranchName}/`;
-window.gMarked = marked;
 // window.gPageLink =
 //   window.location.origin +
 //   window.location.pathname.slice(

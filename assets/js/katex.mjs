@@ -46,4 +46,4 @@ const extension = {
 };
 
 markedExtensions.push(extension);
-document.adoptedStyleSheets = [sheet];
+document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
