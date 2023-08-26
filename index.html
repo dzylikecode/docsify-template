@@ -49,8 +49,10 @@
         repo: window.gReposLink, // 右上角的挂件
         loadNavbar: "NAVIGATION.md",
         loadSidebar: "SUMMARY.md",
+        homepage: "/docs/README.md",
         alias: {
-          "/.*/NAVIGATION.md": "/NAVIGATION.md",
+          ".*/NAVIGATION.md": "/docs/NAVIGATION.md",
+          "/SUMMARY.md": "/docs/SUMMARY.md",
         },
         subMaxLevel: 3, // 子目录最大层级, 有助于显示 markdown 的层级
         auto2top: true, // 自动跳转至顶部
