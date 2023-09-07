@@ -49,6 +49,9 @@ function modifyPagesLink() {
     } else {
       link.src = pageLink + url.slice(1);
     }
+    if (link.link.tagName === "SOURCE") {
+      HTMLMediaElement.prototype.load.call(link.link.parentElement);
+    }
   });
 }
 
@@ -66,7 +69,8 @@ function proxyLink(link) {
 }
 
 function isRelative(url) {
-  return url[0] != "/";
+  const absPath = url[0] == "/" || url.includes(":");
+  return !absPath;
 }
 
 docsifyPlugins.push(plugin);
