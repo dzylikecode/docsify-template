@@ -1,5 +1,5 @@
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-const popupVarRule = /([a-zA-Z0-9_]*)@([a-zA-Z0-9_\-]+)/g;
+const popupVarRule = /([a-zA-Z0-9_]*)@([^\s,\(\)<>]+)/g;
 
 export async function mermaidRender(id, code) {
   const { svg } = await mermaid.render(id, code);
