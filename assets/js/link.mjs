@@ -32,6 +32,7 @@ function modifyReposLink() {
   links.forEach((link) => {
     link = proxyLink(link);
     const url = link.src;
+    if (isRemote(url)) return;
     if (isRelative(url)) {
       link.src = blobFileDir + url;
     } else {
@@ -44,6 +45,7 @@ function modifyPagesLink() {
   links.forEach((link) => {
     link = proxyLink(link);
     const url = link.src;
+    if (isRemote(url)) return;
     if (isRelative(url)) {
       link.src = pageFileDir + url;
     } else {
@@ -68,8 +70,12 @@ function proxyLink(link) {
   };
 }
 
+function isRemote(url) {
+  return url.includes(":");
+}
+
 function isRelative(url) {
-  const absPath = url[0] == "/" || url.includes(":");
+  const absPath = url[0] == "/";
   return !absPath;
 }
 
